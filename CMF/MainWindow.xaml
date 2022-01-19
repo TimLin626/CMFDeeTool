@@ -1,0 +1,99 @@
+﻿<Window x:Class="CMF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CMF"
+        xmlns:mat ="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        mc:Ignorable="d"
+        Title="CMF Tool" Height="700" Width="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <GroupBox Header="FindActionGroup" FontSize="14" FontWeight="Bold">
+            <Grid>
+                <StackPanel>
+                    <Grid Height="40">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="URL:" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                        <TextBox Margin="0,0,10,0" Text="{Binding URL}" Grid.Column="1" VerticalContentAlignment="Center"></TextBox>
+                        <Button Grid.Column="2" Height="40" controls:ControlsHelper.ContentCharacterCasing="Normal" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="Black" Foreground="Black" Background="White" Content="Generate" Command="{Binding GenerateURLCommand}"></Button>
+                    </Grid>
+
+                    <Grid Height="40">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.17*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Pre:" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                        <TextBox IsReadOnly="True" Grid.Column="2" Text="{Binding ActionGroupPre}" FontSize="16" FontWeight="Bold" Margin="0,4" VerticalContentAlignment="Center"></TextBox>
+                    </Grid>
+
+                    <Grid Height="40">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.17*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Post:" FontSize="16" FontWeight="Bold" VerticalAlignment="Center"></TextBlock>
+                        <TextBox IsReadOnly="True" Grid.Column="2" Text="{Binding ActionGroupPost}" FontSize="16" FontWeight="Bold" Margin="0,4" VerticalContentAlignment="Center"></TextBox>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="GetUseReferences" Grid.Row="1" FontSize="14" FontWeight="Bold">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="Gray" BorderThickness="0,0,2,0" Margin="0,2"></Border>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.15*"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.15*"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Dll Files:" ></TextBlock>
+                            <ListView  Grid.Row="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding DllFilesName}"></ListView>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <TextBox  mat:HintAssist.Hint="Copy using to this textbox(Removing and sort first)" Style="{StaticResource MaterialDesignOutlinedTextBox}"  Grid.Row="1" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding UsingText}"></TextBox>
+                        </Grid>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Command="{Binding InsertDllFilesCommand}" Grid.Column="0" Margin="5,5" controls:ControlsHelper.ContentCharacterCasing="Normal" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="Black" Foreground="Black" Background="White" Content="Insert dll files"></Button>
+                        <Button Command="{Binding GenerateDeeReferencesCommand}" Grid.Column="2" Margin="5,5" controls:ControlsHelper.ContentCharacterCasing="Normal" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="Black" Foreground="Black" Background="White" Content="GenerateDeeReferences"></Button>
+                    </Grid>
+                   
+                </Grid>
+                <TextBox IsReadOnly="True" mat:HintAssist.Hint="Dee References" Style="{StaticResource MaterialDesignOutlinedTextBox}"  Grid.Column="2" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding DeeResult}"></TextBox>
+                
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
