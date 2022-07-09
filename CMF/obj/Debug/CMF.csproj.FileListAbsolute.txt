@@ -42,4 +42,4 @@ C:\Users\b9110\source\repos\CMF\CMF\obj\Debug\CMF.csproj.Fody.CopyLocal.cache
 C:\Users\b9110\source\repos\CMF\CMF\obj\Debug\CMF.csproj.CopyComplete
 C:\Users\b9110\source\repos\CMF\CMF\obj\Debug\CMF.exe
 C:\Users\b9110\source\repos\CMF\CMF\obj\Debug\CMF.pdb
-C:\Users\b9110\source\repos\CMF\CMF\obj\Debug\CMF.csprojAssemblyReference.cache
+C:\Users\b9110\source\repos\CMF\CMF\obj\Debug\CMF.csproj.AssemblyReference.cache

@@ -131,7 +131,7 @@ namespace CMF.ViewModel
                             break;
                         }
                         //Customer
-                        if (namespaceString == "Cmf.Custom.CriticalManufacturing.BusinessObjects")
+                        if (namespaceString.Contains("Cmf.Custom") && namespaceString.Contains("BusinessObjects"))
                         {
                             if (isaddcustmodll) break;
                             List<string> customdllname = dllfilenames.Where(dllfilename => dllfilename.Contains("Cmf.Custom.CriticalManufacturing.BusinessObjects.")).ToList();
