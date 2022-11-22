@@ -39,7 +39,7 @@ namespace CMF.ViewModel
         public ObservableCollection<string> DllFilesName { get; set; } = new ObservableCollection<string>();
         public MainViewModel()
         {
-
+            int testkk = 1;
         }
 
         public ICommand GenerateURLCommand => new RelayCommand(() =>
